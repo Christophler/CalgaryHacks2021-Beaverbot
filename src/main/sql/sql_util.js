@@ -12,6 +12,8 @@ client.query(
     console.log(ret);
 })
 
-function registerUniversity(university, tag) {
+function registerUniversity(universityName, tag2) {
+    var name = universityName;
+    var tag = tag2;
     
 }
