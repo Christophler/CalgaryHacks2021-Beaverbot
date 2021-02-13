@@ -46,13 +46,11 @@ class HelpCommand extends CommandBase {
             },
             {
                 "name": "!profile <@user>",
-                "value": "Lists the social media accounts associated with that user",
-                "inline": true
+                "value": "Lists the social media accounts associated with that user"
             },
             {
                 "name": "!find <university/program/club>",
-                "value": "Lists the associated information about the university/program/club that you are searching for",
-                "inline": true
+                "value": "Lists the associated information about the university/program/club that you are searching for"
             }
             ]
         };
