@@ -10,18 +10,7 @@ bot.on("message", (message) => {
 
     const raw = message.content;
     
-    /**
-     * lemon
-     * jeremy tajsdfkljas
-     * christopher was here
-     * !help
-     * !register
-     * !my_command asd d d d 1
-     * > {}
-     */
-
-    // !Lemon 123 henry
-
+    if (raw.charAt(0) === '!' && raw.length > 1){//Process raw starts here
     const msg_in = raw.split(" "); //array [!command, a, b, c, d]
     msg_in[0] =msg_in[0].replace("!", ""); //remove !
     const cmd_name = msg_in[0]
@@ -30,7 +19,8 @@ bot.on("message", (message) => {
     const command = {
         name: cmd_name,
         args: msg_in
-    }
+    }//Message array output (command) ends here
+    
 });
 
 bot.login('ODEwMjI1MzMwMjgyOTU0Nzky.YCgjIw.k2u4fW0dBIk8CkpbQYZKMgXA5Oc');
