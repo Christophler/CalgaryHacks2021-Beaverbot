@@ -9,6 +9,15 @@ bot.once('ready', () => {
 bot.on("message", (message) => {
     if(message.author.bot) return; // terminate if the message sent was from the bot.
 
+    const embed = {
+        "title": "Title",
+        "description": "Jeremy was here",
+        "color": 99999,
+        "timestamp": "2021-02-13T20:29:35.728Z",
+        "fields": []
+    };
+
+    message.channel.send({embed});
 
 });
 
