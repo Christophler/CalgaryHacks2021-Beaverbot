@@ -14,6 +14,8 @@ function registerUniversity(universityName, tag2) {
             "Repair, Production & Construction", "Sciencess: Biological & Physical", "Social Sciences & Law"
         ]
     }
+
+    return 0;
 }
 
 
