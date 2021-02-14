@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 
+const HelpCommand = require('./commands/help_command');
+const commands = [new HelpCommand()];
+
 bot.once('ready', () => {
     console.log('Ready!');
 });
@@ -11,15 +14,24 @@ bot.on("message", (message) => {
     const raw = message.content;
     
     if (raw.charAt(0) === '!' && raw.length > 1){//Process raw starts here
-    const msg_in = raw.split(" "); //array [!command, a, b, c, d]
-    msg_in[0] =msg_in[0].replace("!", ""); //remove !
-    const cmd_name = msg_in[0]
-    msg_in.shift(); //remove command name with remaining args left
+        const msg_in = raw.split(" "); //array [!command, a, b, c, d]
+        msg_in[0] =msg_in[0].replace("!", ""); //remove !
+        const cmd_name = msg_in[0]
+        msg_in.shift(); //remove command name with remaining args left
 
-    const command = {
-        name: cmd_name,
-        args: msg_in
-    }//Message array output (command) ends here
+        const command = {
+            name: cmd_name,
+            args: msg_in
+        }
+        //Message array output (command) ends here
+        for(var i in commands) {
+            const cmd = commands[i]
+            if(cmd.names.includes(command.name)) {
+                cmd.run(message, command.args);
+                break;
+            }
+        }
+    }
     
 });
 

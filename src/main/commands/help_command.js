@@ -3,7 +3,7 @@ const CommandBase = require('./command_base');
 class HelpCommand extends CommandBase {
 
     constructor() {
-        super('help');
+        super(['help', 'h', 'he']);
     }
 
     run(message, args) {
@@ -58,3 +58,5 @@ class HelpCommand extends CommandBase {
     }
 
 }
+
+module.exports = HelpCommand;

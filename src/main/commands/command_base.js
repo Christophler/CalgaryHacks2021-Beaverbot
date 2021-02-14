@@ -2,9 +2,7 @@
 
 class CommandBase {
 
-    #names;
-
-    CommandBase(names) {
+    constructor (names) {
         this.names = names;
     }
 
@@ -14,4 +12,4 @@ class CommandBase {
 
 }
 
-modules.exports = CommandBase;
+module.exports = CommandBase;
