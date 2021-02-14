@@ -1,6 +1,7 @@
-var faundb = require('faunadb');
-var client = new faundb.Client({ secret: 'fnAEB9705sACAlJREYUIpnkqRK-W5SNwPlmXhl4b' });
-var q = faundb.query;
+const faundb = require('faunadb');
+const client = new faundb.Client({ secret: 'fnAEB9705sACAlJREYUIpnkqRK-W5SNwPlmXhl4b' });
+const q = faundb.query;
+const fs = require('fs');
 
 function registerUniversity(universityName, tag) {
     const data = {
@@ -50,6 +51,8 @@ function registerProfile(discordId, discordTag, firstName, lastName, universityT
     })
 }
 
+
+
 function getProfile(discordId) {
     /**
      * Usage Example
@@ -60,9 +63,22 @@ function getProfile(discordId) {
      *  // discord id not found
      * });
      */
+    const newIndex = require('./indices.json').currentIndex + 1;
+    fs.writeFile('indices.json', JSON.stringify({currentIndex: newIndex}), 'utf-8', (err) => {
+        // console.log(err);
+    });
+    client.query(
+        q.CreateIndex(
+            {
+                name: newIndex,
+                source: q.Collection('profiles'),
+                terms: [{field: ['data', 'discordId']}]
+            }
+        )
+    );
     return client.query(
         q.Get(
-            q.Match(q.Index('del'), discordId)
+            q.Match(q.Index(newIndex), discordId)
         )
     );
 }
