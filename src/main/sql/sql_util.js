@@ -3,10 +3,10 @@ var q = query;
 var client = new faunadb.Client({ secret: 'fnAEB9705sACAlJREYUIpnkqRK-W5SNwPlmXhl4b' });
 
 
-function registerUniversity(universityName, tag2) {
+function registerUniversity(universityName, tag) {
     const data = {
         name: universityName,
-        tag: tag2,
+        tag: tag,
         programs: [
             "Agriculture & Natural Resources Conservation", "Architecture", "Area, Ethnic & Multidisciplinary Studies", 
             "Arts: Visual & Performing", "Business", "Communications", "Community, Family & Personal Services", "Computer Science & Mathematics", 
