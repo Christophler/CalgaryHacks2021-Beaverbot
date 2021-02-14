@@ -2,7 +2,8 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 
 const HelpCommand = require('./commands/help_command');
-const commands = [new HelpCommand()];
+const RegisterCommand = require('./commands/register_command');
+const commands = [new HelpCommand(), new RegisterCommand()];
 
 bot.once('ready', () => {
     console.log('Ready!');
