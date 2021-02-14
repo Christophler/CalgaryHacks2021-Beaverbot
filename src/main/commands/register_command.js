@@ -4,7 +4,7 @@ const unis = require('../unis.json').universities;
 const sqlUtil = require('../sql/sql_util');
 
 class RegisterCommand extends CommandBase {
-        // Usage: !register <first_name> <last_name> <uni_tag> <graduating_year>
+        // Usage:   !register <first_name> <last_name> <uni_tag> <graduating_year>
         // Example: !register Jeremy Tubongbanua uoft 1
         constructor(){
             super(['register']);
@@ -12,7 +12,7 @@ class RegisterCommand extends CommandBase {
 
         run(message, args){
 
-        if (args.length == 4){
+        if (args.length == 4) {
 
             const first = args[0]; 
             const last = args[1];
@@ -22,11 +22,15 @@ class RegisterCommand extends CommandBase {
             const discordId = message.member.id
 
             if (unis.includes(uniTag)){
-                registerProfile(discordTag, discordId, first, last, uniTag, grad_year); 
+                registerProfile(discordId, discordTag, first, last, uniTag, grad_year); 
                 message.channel.send('You have successfully registerd!');
                }
-            }
+        } else {
+            message.channel.send("Invalid usage: !register <firstName> <lastName> <uni> <gradYear>");
         }
+
+        }
+    
     }
 
 

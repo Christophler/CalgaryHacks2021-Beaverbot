@@ -1,5 +1,5 @@
 {
-    "uoft": {
+    "UofT": {
         "servers": [
             {
                 "serverName": "University of Toronto League of Legends",
@@ -39,7 +39,7 @@
         ]
     },
 
-    "Queens": {
+    "QU": {
         "servers": [
             {
                 "serverName": "Queen's University",
@@ -62,7 +62,7 @@
         ]
     },
 
-    "Ryerson": {
+    "RyeU": {
         "servers": [
             {
                 "serverName": "Ryerson University",

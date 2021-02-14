@@ -4,7 +4,8 @@ const bot = new Discord.Client();
 const HelpCommand = require('./commands/help_command');
 const RegisterCommand = require('./commands/register_command');
 const ProfileCommand = require('./commands/profile_command');
-const commands = [new HelpCommand(), new RegisterCommand(), new ProfileCommand()];
+const RecommendedCommand = require('./commands/recommended_command');
+const commands = [new HelpCommand(), new RegisterCommand(), new ProfileCommand(), new RecommendedCommand()];
 
 bot.once('ready', () => {
     console.log('Ready!');

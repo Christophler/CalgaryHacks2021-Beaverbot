@@ -70,15 +70,19 @@ function getProfile(discordId) {
     client.query(
         q.CreateIndex(
             {
-                name: newIndex,
+                name: newIndex.toString(),
                 source: q.Collection('profiles'),
                 terms: [{field: ['data', 'discordId']}]
             }
         )
-    );
+    ).then((ret) => {
+
+    }).catch((err) => {
+        console.log(err);
+    });
     return client.query(
         q.Get(
-            q.Match(q.Index(newIndex), discordId)
+            q.Match(q.Index((newIndex-1).toString()), discordId.toString())
         )
     );
 }
