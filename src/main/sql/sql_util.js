@@ -25,16 +25,18 @@ function registerUniversity(universityName, tag) {
     })
 }
 
-function registerProfile(discordId, firstName, lastName, universityTag) {
+function registerProfile(discordId, discordTag, firstName, lastName, universityTag, graduatingYear) {
     /**
      * Usage Example:
-     *  registerProfile("Jeremy#7970", "Jeremy", "Tubongbanua", "uoft");
+     *  registerProfile("1231231241", "Jeremy#7970", "Jeremy", "Tubongbanua", "uoft");
      */
     const data = {
-        discord_id: discordId,
+        discordId: discordId,
+        discordTag: discordTag,
         firstName: firstName,
         lastName: lastName,
-        university: universityTag
+        university: universityTag,
+        graduatingYear: graduatingYear
     }
 
     client.query(
