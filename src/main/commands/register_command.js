@@ -1,33 +1,32 @@
 const CommandBase = require('./command_base');
-const {registerProfile} = require('../sql/sql_util');
-const unis = require('DIRECTORY_TO_JSON').universities;
+const {registerProfile, getProfile} = require('../sql/sql_util');
+const unis = require('../unis.json').universities;
+const sqlUtil = require('../sql/sql_util');
 
 class RegisterCommand extends CommandBase {
-        // Usage: !register <first_name> <last_name> <uni_tag>
-        // Example: !register Jeremy Tubongbanua uoft
+        // Usage: !register <first_name> <last_name> <uni_tag> <graduating_year>
+        // Example: !register Jeremy Tubongbanua uoft 1
         constructor(){
             super(['register']);
         }
 
         run(message, args){
 
-        const first = args[0];
-        const last = args[1];
-        const uniTag = args[2];
-        //const discordId = ? // find through Message object on discord (see Discord.js docs on Message)
         if (args.length == 3){
 
-        // call registerProfile()
             const first = args[0]; 
             const last = args[1];
             const uniTag = args[2];
-            const discordId = message.member.user.tag // find through Message object on discord (see Discord.js docs on Message)
+            const year = args[3];
+            const discordId = message.member.user.tag; // find through Message object on discord (see Discord.js docs on Message)
+            const discordTag = message.member.id;
 
-            registerProfile(discordId, first, last, uniTag);
+            if (unis.includes(uniTag)){
+                registerProfile(discordId, discordTag, first, last, uniTag, year); 
+               })
+            }
         }
-
     }
-
 }
 
 
