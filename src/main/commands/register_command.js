@@ -18,16 +18,16 @@ class RegisterCommand extends CommandBase {
             const last = args[1];
             const uniTag = args[2];
             const year = args[3];
-            const discordId = message.member.user.tag; // find through Message object on discord (see Discord.js docs on Message)
-            const discordTag = message.member.id;
+            const discordTag = message.member.user.tag // find through Message object on discord (see Discord.js docs on Message)
+            const discordId = message.member.id
 
             if (unis.includes(uniTag)){
-                registerProfile(discordId, discordTag, first, last, uniTag, year); 
-               })
+                registerProfile(discordTag, discordId, first, last, uniTag, year); 
+               }
             }
         }
     }
-}
+
 
 
 module.exports = RegisterCommand;
