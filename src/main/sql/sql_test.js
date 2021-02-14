@@ -26,4 +26,6 @@ const sqlUtil = require('./sql_util');
 // sqlUtil.registerProfile("Jeremy#7970", "Jeremy", "Tubongbanua", "uoft");
 sqlUtil.getProfile("Jeremy#7970").then((ret) => {
     console.log(ret.data.university);
+}).catch((err) => {
+    console.log("not found");
 })
