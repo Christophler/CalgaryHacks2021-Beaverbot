@@ -1,20 +1,29 @@
-var {query, faunadb} = require('faunadb');
-var q = query;
-var client = new faunadb.Client({ secret: 'fnAEB9705sACAlJREYUIpnkqRK-W5SNwPlmXhl4b' });
+var faundb = require('faunadb');
+var client = new faundb.Client({ secret: 'fnAEB9705sACAlJREYUIpnkqRK-W5SNwPlmXhl4b' });
+var q = faundb.query;
 
-const name = "jeremy#7970"
+const sqlUtil = require('./sql_util');
 
-const data = {
-    title: "hello world",
-    description: "uiniversity of toronto kms"
-}
+// const indexName = 'del';
+// const discordId = "Henry#123";
+// client.query(
+//     q.CreateIndex({
+//       name: indexName,
+//       source: q.Collection('profiles'),
+//     //   values: [{field: ['data', 'discord_id']}, {field: ['data', 'university']}],
+//       terms: [{ field: ['data', 'discord_id'] }]
+//     })
+//   )
+//   .then((ret) => {});
 
-client.query(
-    q.Create (
-        q.Collection('profiles'),
-        {data: data},
-    )
-)
-.then((ret) => {
-    console.log(ret);
+//   return client.query(
+//     q.Get(
+//       q.Match(q.Index(indexName), discordId)
+//     )
+//   )
+//   .then((ret) => console.log(ret));
+
+// sqlUtil.registerProfile("Jeremy#7970", "Jeremy", "Tubongbanua", "uoft");
+sqlUtil.getProfile("Jeremy#7970").then((ret) => {
+    console.log(ret.data.university);
 })

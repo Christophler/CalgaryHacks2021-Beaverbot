@@ -26,6 +26,10 @@ function registerUniversity(universityName, tag) {
 }
 
 function registerProfile(discordId, firstName, lastName, universityTag) {
+    /**
+     * Usage Example:
+     *  registerProfile("Jeremy#7970", "Jeremy", "Tubongbanua", "uoft");
+     */
     const data = {
         discord_id: discordId,
         firstName: firstName,
@@ -45,22 +49,20 @@ function registerProfile(discordId, firstName, lastName, universityTag) {
 }
 
 function getProfile(discordId) {
+    /**
+     * Usage Example
+     * getProfile("Jeremy#7970").then((ret) => {
+     *  const data = ret.data;
+     *  console.log(data.firstName);
+     * }).catch((err) => {
+     *  // discord id not found
+     * });
+     */
     return client.query(
-        q.CreateIndex({
-          name: 'del',
-          source: q.Collection('profiles'),
-          values: [{field: ['data', 'discord_id']}, {field: ['data', 'university']}],
-          terms: [{ field: ['data', 'discord_id'] }]
-        })
-      );
-    //   .then((ret) => console.log(ret));
-    
-    //   client.query(
-    //     q.Get(
-    //       q.Match(q.Index('123'), 'Jeremy Tubongbanua')
-    //     )
-    //   )
-    //   .then((ret) => console.log(ret))
+        q.Get(
+            q.Match(q.Index('del'), discordId)
+        )
+    );
 }
 
 module.exports.registerProfile = registerProfile;
