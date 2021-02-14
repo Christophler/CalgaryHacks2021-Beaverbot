@@ -12,17 +12,18 @@ class RegisterCommand extends CommandBase {
 
         run(message, args){
 
-        if (args.length == 3){
+        if (args.length == 4){
 
             const first = args[0]; 
             const last = args[1];
             const uniTag = args[2];
-            const year = args[3];
+            const grad_year = args[3];
             const discordTag = message.member.user.tag // find through Message object on discord (see Discord.js docs on Message)
             const discordId = message.member.id
 
             if (unis.includes(uniTag)){
-                registerProfile(discordTag, discordId, first, last, uniTag, year); 
+                registerProfile(discordTag, discordId, first, last, uniTag, grad_year); 
+                message.channel.send('You have successfully registerd!');
                }
             }
         }
