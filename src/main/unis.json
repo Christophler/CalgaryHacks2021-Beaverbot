@@ -1,0 +1,29 @@
+{
+    "universities": [
+        "Algoma University", "Algoma U", "Algoma",
+        "Brock University", "BU", "Brock",
+        "Carleton University", "CU", "Carleton",
+        "Lakehead University", "Lakehead",
+        "Laurentian University", "Laurentian",
+        "McMaster University", "Mac", "McMaster",
+        "Nipissing University",
+        "OCAD", "Ontario College of Art & Design", "OCAD University",
+        "Queen's University", "QU", "Queens", "Queens University", "Queen's",
+        "Royal Military College", "RMC",
+        "Ryerson University", "RU", "RyeU", "Rye", "RYE", "Ryerson",
+        "Trent University", "TrentU", "Trent", "TU",
+        "University of Guelph", "UoG", "Guelph", "U of G",
+        "University of Hearst", "UoH", "Hearst", "U of H",
+        "Universite de l'Ontario Francais", "UoF", "U of F",
+        "University of Ottawa", "UoO", "uOttawa", "U of O",
+        "University of Toronto", "UofT", "UoT","UTSC", "UTSG", "UTM", "Suicide:(",
+        "University of Waterloo", "Loo", "Waterloo", "UW", "UWaterloo",
+        "University of Windsor", "UWindsor", "U of W", "Windsor",
+        "Western University", "Western", "UWO", "uwo",
+        "Wilfrid Laurier University", "WLU", "Laurier",
+        "York University", "York", "YU", "YorkU",
+        "University of Calgary", "U of C", "UCalgary",
+        "McGill University", "McGill", "MU",
+        "University of British Columbia", "UBC" 
+    ]
+}
